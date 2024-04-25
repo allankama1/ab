@@ -17,7 +17,7 @@ import com.example.abmotorss.ui.theme.screens.splash.Splashscreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController:NavHostController = rememberNavController(),
-    startDestination:String = LOGIN_URL
+    startDestination:String = SPLASH_URL
 ){
     NavHost(
         navController = navController,

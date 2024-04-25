@@ -16,7 +16,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
@@ -24,6 +27,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.abmotorss.R
 import com.example.abmotorss.data.AuthViewModel
 import com.example.abmotorss.navigation.SIGNUP_URL
 import com.example.abmotorss.ui.theme.WazitoECommerceTheme
@@ -32,8 +36,13 @@ import com.example.abmotorss.ui.theme.WazitoECommerceTheme
 @Composable
 fun LoginScreen(navController:NavHostController){
     Column(
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier
+            .paint(
+                painterResource(id = R.drawable.simple),
+                contentScale = ContentScale.FillBounds,
+            )
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
             text = "Login ",
@@ -48,7 +57,7 @@ fun LoginScreen(navController:NavHostController){
         OutlinedTextField(
             value = email,
             onValueChange = {email = it},
-            label = { Text(text = "Enter email")},
+            label = { Text(text = "Name")},
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Email
             )
@@ -56,13 +65,15 @@ fun LoginScreen(navController:NavHostController){
 
         Spacer(modifier = Modifier.height(30.dp))
         OutlinedTextField(
-            value = password,
-            onValueChange = {password = it},
-            label = { Text(text = "Enter password")},
+            value =email,
+            onValueChange = {email= it},
+            label = { Text(text = "Email")},
             keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Password
+                keyboardType = KeyboardType.Email
             )
         )
+
+        Spacer(modifier = Modifier.height(30.dp))
 
         Spacer(modifier = Modifier.height(30.dp))
         val context = LocalContext.current
@@ -71,14 +82,14 @@ fun LoginScreen(navController:NavHostController){
         Button(onClick = {
             authViewModel.login(email, password)
         }) {
-            Text(text = "Login")
+            Text(text = "Already have an account?Login")
         }
         Spacer(modifier = Modifier.height(30.dp))
 
         Button(onClick = {
             navController.navigate(SIGNUP_URL)
         }) {
-            Text(text = "Register instead")
+            Text(text = "Don,t have an account?Register.")
         }
     }
 }

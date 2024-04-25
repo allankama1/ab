@@ -17,7 +17,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
@@ -26,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.example.abmotorss.R
 import com.example.abmotorss.data.AuthViewModel
 import com.example.abmotorss.navigation.LOGIN_URL
 import com.example.abmotorss.ui.theme.WazitoECommerceTheme
@@ -34,14 +38,19 @@ import com.example.abmotorss.ui.theme.WazitoECommerceTheme
 @Composable
 fun SignupScreen(navController:NavHostController){
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .paint(
+                painterResource(id = R.drawable.simple),
+                contentScale = ContentScale.FillBounds,
+            )
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
             text = "Signup Here",
             fontSize = 40.sp,
             fontWeight = FontWeight.Bold,
-            fontFamily = FontFamily.Cursive
+            fontFamily = FontFamily.Serif
         )
         Spacer(modifier = Modifier.height(30.dp))
 
@@ -81,11 +90,53 @@ fun SignupScreen(navController:NavHostController){
 
         Spacer(modifier = Modifier.height(30.dp))
 
+        OutlinedTextField(
+            value = name,
+            onValueChange = {name = it},
+            label = { Text(text = "Enter Surname")},
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text
+            )
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
+
+        OutlinedTextField(
+            value = name,
+            onValueChange = {name = it},
+            label = { Text(text = "Enter Phone number")},
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text
+            )
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
+
+        OutlinedTextField(
+            value = name,
+            onValueChange = {name = it},
+            label = { Text(text = "Enter country")},
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Text
+            )
+        )
+
+        Spacer(modifier = Modifier.height(30.dp))
+
+
+
+
+
+
+
+
         val context = LocalContext.current
         val authViewModel = AuthViewModel(navController, context)
         Button(onClick = {
             authViewModel.signup(name, email, password)
-        }) {
+        }, modifier = Modifier
+
+        ) {
             Text(text = "Register")
         }
 

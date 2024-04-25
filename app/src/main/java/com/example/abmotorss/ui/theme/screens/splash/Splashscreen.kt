@@ -1,5 +1,6 @@
 package com.example.abmotorss.ui.theme.screens.splash
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -24,7 +26,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.abmotorss.R
+import com.example.abmotorss.navigation.LOGIN_URL
+import com.example.abmotorss.navigation.SIGNUP_URL
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 fun Splashscreen(navController: NavHostController) {
 Column(modifier = Modifier
@@ -40,11 +47,16 @@ Column(modifier = Modifier
 
 
 ){
+
+    val coroutine = rememberCoroutineScope()
+    coroutine.launch{ delay(2000)
+    navController.navigate(LOGIN_URL)}
+
     Image(painter = painterResource(id = R.drawable.carr),
         contentDescription = "car",
         modifier = Modifier
             .size(200.dp)
-            .clip( shape = CircleShape),
+            .clip(shape = CircleShape),
         contentScale = ContentScale.Crop
 
     )
