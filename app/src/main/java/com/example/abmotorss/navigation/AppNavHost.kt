@@ -6,6 +6,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.abmotorss.ui.theme.screens.aboutscreen.AboutScreen
 import com.example.abmotorss.ui.theme.screens.home.HomeScreen
 import com.example.abmotorss.ui.theme.screens.login.LoginScreen
 import com.example.abmotorss.ui.theme.screens.products.AddProductsScreen
@@ -42,6 +43,9 @@ fun AppNavHost(
             Splashscreen(navController =navController )
         }
 
+        composable(ABOUT_URL){
+            AboutScreen(navController =navController )
+        }
 
     }
 }
