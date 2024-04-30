@@ -38,7 +38,7 @@ fun LoginScreen(navController:NavHostController){
     Column(
         modifier = Modifier
             .paint(
-                painterResource(id = R.drawable.simple),
+                painterResource(id = R.drawable.wall),
                 contentScale = ContentScale.FillBounds,
             )
             .fillMaxSize(),
@@ -52,14 +52,15 @@ fun LoginScreen(navController:NavHostController){
         Spacer(modifier = Modifier.height(30.dp))
 
         var email by remember { mutableStateOf("") }
+        var name by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
 
         OutlinedTextField(
-            value = email,
-            onValueChange = {email = it},
+            value =name,
+            onValueChange = {name = it},
             label = { Text(text = "Name")},
             keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Email
+                keyboardType = KeyboardType.Text
             )
         )
 

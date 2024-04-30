@@ -38,7 +38,7 @@ Column(modifier = Modifier
     .fillMaxSize()
     .fillMaxWidth()
     .paint(
-        painterResource(id = R.drawable.simple),
+        painterResource(id = R.drawable.wallll),
         contentScale = ContentScale.FillBounds,
     )
     .fillMaxSize(),

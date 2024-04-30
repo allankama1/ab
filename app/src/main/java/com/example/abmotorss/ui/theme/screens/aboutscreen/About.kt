@@ -24,7 +24,7 @@ Column( modifier = Modifier
     horizontalAlignment = Alignment.CenterHorizontally,) {
 
 }
-Text(text = )
+Text(text = "")
 }
 @Composable
 @Preview(showBackground = true)

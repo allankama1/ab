@@ -40,7 +40,7 @@ fun SignupScreen(navController:NavHostController){
     Column(
         modifier = Modifier
             .paint(
-                painterResource(id = R.drawable.simple),
+                painterResource(id = R.drawable.wallll),
                 contentScale = ContentScale.FillBounds,
             )
             .fillMaxSize(),
