@@ -60,7 +60,7 @@ fun ViewProductsScreen(navController:NavHostController) {
             LazyColumn(){
                 items(products){
                     ProductItem(
-                        name = it.name,
+                        name = it.carname,
                         quantity = it.quantity,
                         price = it.price,
                         id = it.id,

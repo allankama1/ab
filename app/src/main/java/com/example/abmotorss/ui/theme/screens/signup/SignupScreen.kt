@@ -57,6 +57,9 @@ fun SignupScreen(navController:NavHostController){
         var name by remember { mutableStateOf("") }
         var email by remember { mutableStateOf("") }
         var password by remember { mutableStateOf("") }
+        var surname by remember { mutableStateOf("") }
+        var phonenumber by remember { mutableStateOf("") }
+        var country by remember { mutableStateOf("") }
 
         OutlinedTextField(
             value = name,
@@ -88,46 +91,9 @@ fun SignupScreen(navController:NavHostController){
             )
         )
 
-        Spacer(modifier = Modifier.height(30.dp))
 
-        OutlinedTextField(
-            value = name,
-            onValueChange = {name = it},
-            label = { Text(text = "Enter Surname")},
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text
-            )
-        )
 
         Spacer(modifier = Modifier.height(30.dp))
-
-        OutlinedTextField(
-            value = name,
-            onValueChange = {name = it},
-            label = { Text(text = "Enter Phone number")},
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text
-            )
-        )
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-        OutlinedTextField(
-            value = name,
-            onValueChange = {name = it},
-            label = { Text(text = "Enter country")},
-            keyboardOptions = KeyboardOptions(
-                keyboardType = KeyboardType.Text
-            )
-        )
-
-        Spacer(modifier = Modifier.height(30.dp))
-
-
-
-
-
-
 
 
         val context = LocalContext.current

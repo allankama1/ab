@@ -29,6 +29,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.abmotorss.R
 import com.example.abmotorss.data.AuthViewModel
+import com.example.abmotorss.navigation.HOME_URL
 import com.example.abmotorss.navigation.SIGNUP_URL
 import com.example.abmotorss.ui.theme.WazitoECommerceTheme
 
@@ -75,15 +76,23 @@ fun LoginScreen(navController:NavHostController){
         )
 
         Spacer(modifier = Modifier.height(30.dp))
+        OutlinedTextField(
+            value = password,
+            onValueChange = {password = it},
+            label = { Text(text = "Enter password")},
+            keyboardOptions = KeyboardOptions(
+                keyboardType = KeyboardType.Password
+            )
+        )
 
         Spacer(modifier = Modifier.height(30.dp))
         val context = LocalContext.current
         val authViewModel = AuthViewModel(navController, context)
 
-        Button(onClick = {
+        Button(onClick = {navController.navigate(HOME_URL)
             authViewModel.login(email, password)
         }) {
-            Text(text = "Already have an account?Login")
+            Text(text = "Already have an account? Login")
         }
         Spacer(modifier = Modifier.height(30.dp))
 

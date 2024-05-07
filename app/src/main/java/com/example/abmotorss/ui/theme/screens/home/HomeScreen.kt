@@ -24,9 +24,11 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -39,16 +41,25 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.abmotorss.R
+import com.example.abmotorss.navigation.BM_URL
+import com.example.abmotorss.navigation.FORD_URL
+import com.example.abmotorss.navigation.MERC_URL
 
 import com.example.abmotorss.navigation.SPLASH_URL
+import com.example.abmotorss.navigation.TOY_URL
 import com.example.abmotorss.ui.theme.WazitoECommerceTheme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController:NavHostController){
     Column(modifier = Modifier
+        .paint(
+            painterResource(id = R.drawable.wa1),
+            contentScale = ContentScale.FillBounds,
+        )
         .fillMaxSize()
-        .verticalScroll(rememberScrollState())
+        .verticalScroll(rememberScrollState()
+        )
 
     ){
         TopAppBar(
@@ -67,7 +78,7 @@ fun HomeScreen(navController:NavHostController){
         Row( modifier = Modifier.padding(start = 20.dp)) {
             Column {
                 Text(
-                    text = "Amazon",
+                    text = "AB motors",
                     fontSize = 30.sp,
                     fontWeight = FontWeight.Medium,
                     color = Color(20,100,255)
@@ -92,8 +103,8 @@ fun HomeScreen(navController:NavHostController){
                 val mContext = LocalContext.current
                 Card (modifier = Modifier
                     .clickable {
-                        navController.navigate(SPLASH_URL )
-                        Toast.makeText(mContext,"Go to clothing screen",
+                        navController.navigate(TOY_URL )
+                        Toast.makeText(mContext,"Go to Toyota screen",
                             Toast.LENGTH_SHORT).show()
 
                     }
@@ -109,7 +120,7 @@ fun HomeScreen(navController:NavHostController){
                         Image(
                             painter = painterResource(id = R.drawable.toyota),
                             contentDescription = "amazon",
-                            modifier = Modifier.size(50.dp)
+                            modifier = Modifier.size(200.dp)
                         )
                         Text(
                             text = "Toyota",
@@ -133,7 +144,12 @@ fun HomeScreen(navController:NavHostController){
 
 
                 Card (modifier = Modifier.
-                clickable {   }
+                clickable {
+                    navController.navigate(MERC_URL )
+                    Toast.makeText(mContext,"Go to Mercedes screen",
+                        Toast.LENGTH_SHORT).show()
+
+                }
                     .size(width = 150.dp, height = 150.dp)
                     .shadow(10.dp)){
 
@@ -146,7 +162,7 @@ fun HomeScreen(navController:NavHostController){
                         Image(
                             painter = painterResource(id = R.drawable.merc),
                             contentDescription = "Mercedes",
-                            modifier = Modifier.size(50.dp)
+                            modifier = Modifier.size(200.dp)
                         )
                         Text(
                             text = "Mercedes",
@@ -172,9 +188,20 @@ fun HomeScreen(navController:NavHostController){
             Row {
 
                 //First Card
+                val mContext = LocalContext.current
                 Card (modifier = Modifier
                     .size(width = 150.dp, height = 150.dp)
-                    .shadow(10.dp)){
+                    .shadow(10.dp)
+                    .
+                    clickable {
+                        navController.navigate(MERC_URL )
+                        Toast.makeText(mContext,"Go to BMW screen",
+                            Toast.LENGTH_SHORT).show()
+
+                    }
+                )
+
+                {
 
 
 
@@ -185,7 +212,7 @@ fun HomeScreen(navController:NavHostController){
                         Image(
                             painter = painterResource(id = R.drawable.bmw),
                             contentDescription = "BMW",
-                            modifier = Modifier.size(50.dp)
+                            modifier = Modifier.size(20.dp)
                         )
                         Text(
                             text = "BMW",
@@ -208,7 +235,13 @@ fun HomeScreen(navController:NavHostController){
                 //second card
                 Card (modifier = Modifier
                     .size(width = 150.dp, height = 150.dp)
-                    .shadow(10.dp)){
+                    .shadow(10.dp)
+                    .clickable {
+                        navController.navigate(MERC_URL )
+                        Toast.makeText(mContext,"Go to Mitsubishi screen",
+                            Toast.LENGTH_SHORT).show()
+
+                    }){
 
 
 
@@ -219,7 +252,7 @@ fun HomeScreen(navController:NavHostController){
                         Image(
                             painter = painterResource(id = R.drawable.mitsubishi),
                             contentDescription = "Mitsubishi",
-                            modifier = Modifier.size(50.dp)
+                            modifier = Modifier.size(250.dp)
                         )
                         Text(
                             text = "Mitsubishi",
@@ -245,9 +278,16 @@ fun HomeScreen(navController:NavHostController){
             Row {
 
                 //First Card
+                val mContext = LocalContext.current
                 Card (modifier = Modifier
                     .size(width = 150.dp, height = 150.dp)
-                    .shadow(10.dp)){
+                    .shadow(10.dp)
+                    .clickable {
+                        navController.navigate(MERC_URL )
+                        Toast.makeText(mContext,"Go to Lexus screen",
+                            Toast.LENGTH_SHORT).show()
+
+                    }){
 
 
 
@@ -258,7 +298,7 @@ fun HomeScreen(navController:NavHostController){
                         Image(
                             painter = painterResource(id = R.drawable.lexus),
                             contentDescription = "Lexus",
-                            modifier = Modifier.size(50.dp)
+                            modifier = Modifier.size(200.dp)
                         )
                         Text(
                             text = "Lexus",
@@ -281,7 +321,13 @@ fun HomeScreen(navController:NavHostController){
                 //second card
                 Card (modifier = Modifier
                     .size(width = 150.dp, height = 150.dp)
-                    .shadow(10.dp)){
+                    .shadow(10.dp)
+                    .clickable {
+                        navController.navigate(FORD_URL )
+                        Toast.makeText(mContext,"Go to Ford screen",
+                            Toast.LENGTH_SHORT).show()
+
+                    }){
 
 
 
@@ -292,7 +338,7 @@ fun HomeScreen(navController:NavHostController){
                         Image(
                             painter = painterResource(id = R.drawable.ford),
                             contentDescription = "Ford",
-                            modifier = Modifier.size(50.dp)
+                            modifier = Modifier.size(200.dp)
                         )
                         Text(
                             text = "Ford",
